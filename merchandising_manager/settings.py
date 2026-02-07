@@ -29,8 +29,14 @@ SECRET_KEY = 'django-insecure-)t5$10yevlk2r4#w_o!!9%!)-9c1blko-*q3a9sj)()g)_9p%3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost",
+                  "127.0.0.1",
+                  "final-backend-1-wg22.onrender.com",
+                  ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://final-backend-1-wg22.onrender.com",
+]
 RENDER_HOST = config("RENDER_HOST", default="")
 if RENDER_HOST:
     ALLOWED_HOSTS.append(RENDER_HOST)
