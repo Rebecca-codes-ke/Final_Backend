@@ -16,21 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.http import JsonResponse
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from accounts.views_me import me
-
-
-def health_check(request):
-    return JsonResponse({
-        "status": "Merchandising API running",
-        "version": "1.0"
-    })
-
+from django.shortcuts import redirect
 
 urlpatterns = [
-    path("", health_check),  
 
+    path("", lambda request: redirect("/admin/login/")),
     path("admin/", admin.site.urls),
 
     path("api/auth/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
